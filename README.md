@@ -14,4 +14,6 @@ We want to use an application state component for each client, but we don't want
 
 Instead, we want to create a state component for each client, and be able to access it as a scoped parameter in all the pages in each client. 
 
-How can we provide customized state components for each client and maintain that state across client pages?
+How can we provide customized state **components** for each client and maintain that state across client pages?
+
+> :point_up: **Note**: We do not want a myriad of scoped services. We want components.
