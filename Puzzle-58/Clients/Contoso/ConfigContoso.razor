@@ -1,9 +1,23 @@
 ﻿@using Components
+<h3>Contoso Page</h3>
 
-<h3>Contoso Config Page</h3>
+Welcome to Contoso.
+
+<p>Contoso Specific Property: @(ContosoAppState != null ? ContosoAppState.ContosoAppStateText : "ContosoAppState is not initialized")</p>
+
 
 @code {
-
     [CascadingParameter]
     public CascadingAppState AppState { get; set; }
+
+    [CascadingParameter]
+    public ContosoAppState ContosoAppState { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (ContosoAppState == null)
+        {
+            ContosoAppState = new ContosoAppState();
+        }
+    }
 }

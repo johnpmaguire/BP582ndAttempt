@@ -1,10 +1,23 @@
 ﻿@using Components
 <h3>Acme Page</h3>
 
-Welcome to Acme. 
+Welcome to Acme.
+
+<p>Acme Specific Property: @(AcmeAppState != null ? AcmeAppState.AcmeAppStateText : "AcmeAppState is not initialized")</p>
+
 
 @code {
-
     [CascadingParameter]
     public CascadingAppState AppState { get; set; }
+
+    [CascadingParameter]
+    public AcmeAppState AcmeAppState { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (AcmeAppState == null)
+        {
+            AcmeAppState = new AcmeAppState();
+        }
+    }
 }

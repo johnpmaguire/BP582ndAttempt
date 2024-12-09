@@ -19,8 +19,7 @@
 <p>How can we provide customized state components for each client and maintain that state across client pages?</p>
 
 
-@code{
-
+@code {
     [CascadingParameter]
     public CascadingAppState AppState { get; set; }
 
@@ -28,4 +27,24 @@
     {
         AppState.CurrentClient = client;
     }
+
+
+}
+
+@* Render the appropriate state component based on the selected client *@
+@if (AppState.CurrentClient == Client.Acme)
+{
+    <AcmeAppState>
+        <ChildContent>
+        </ChildContent>
+    </AcmeAppState>
+
+
+}
+else if (AppState.CurrentClient == Client.Contoso)
+{
+    <ContosoAppState>
+        <ChildContent>
+        </ChildContent>
+    </ContosoAppState>
 }
